@@ -6,7 +6,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const _ = require('lodash')
 program
-    .version('2.0.2')
+    .version('2.1.0')
     .usage('<inputdir> <outputdir> <fontname>')
     .description('convert icon to font automaticly')
     .option('-i, --inputdir <inputdir>', 'inputdir')

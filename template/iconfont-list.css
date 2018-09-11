@@ -5,7 +5,7 @@
   url('{{fontname}}.svg?t={{timestamp}}#{{fontname}}') format('svg'); /* iOS 4.1- */
 }
 
-[class^="change-icon-"], [class*=" change-icon-"] {
+[class^="{{fontname}}-"], [class*=" {{fontname}}-"] {
   font-family: '{{fontname}}' !important;
   font-style:normal;
   -webkit-font-smoothing: antialiased;

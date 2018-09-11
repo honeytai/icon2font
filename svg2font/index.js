@@ -51,8 +51,8 @@ function svgFont(fonts_root, fontname, icon_dir, cssIconHtml, unicode_html, cssS
       name: name,
       unicode: [unicode]
     }
-    cssString.push(`.change-icon-${name}:before { content: "${'\\'}${unicode[0].charCodeAt(0).toString(16)}";}\n`);
-    cssIconHtml.push(`<li class="class-icon"><i class="change-icon-${name}"></i><p class="name">${name}</p></li>`)
+    cssString.push(`.${fontname}-${name}:before { content: "${'\\'}${unicode[0].charCodeAt(0).toString(16)}";}\n`);
+    cssIconHtml.push(`<li class="class-icon"><i class="${fontname}-${name}"></i><p class="name">${name}</p></li>`)
     unicode_html.push(`<li class="unicode-icon"><span class="iconfont">&#${string2unicodes(unicode).join('')};</span><h4>${name}</h4><span class="unicode">&amp;#${string2unicodes(unicode).join('')};</span></li>`)
     fontStream.write(glyph)
   });

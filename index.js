@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const _ = require("lodash");
 
 const { svgFont, cleanFont } = require("./svg2font/index.js");
-const func = function(inputdir, outputdir, fontname) {
+const func = function(inputdir, outputdir, fontname, callback) {
   const project_root = process.cwd();
   const fonts_root = path.resolve(project_root, outputdir);
   const icon_dir = path.resolve(project_root, inputdir);
@@ -36,6 +36,7 @@ const func = function(inputdir, outputdir, fontname) {
       console.log(
         chalk.green("copy svg icon done!" + "\n" + "thank you for use~")
       );
+      callback(createdFiles);
     }
   );
 };

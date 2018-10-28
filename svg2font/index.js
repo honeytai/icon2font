@@ -11,7 +11,6 @@ const { readSrcPathSync, string2unicodes } = require('../utils');
 
 // 根据svg生成其他字体
 function createOtherFont(fonts_root, fontname) {
-  debugger;
   const icon_svg_font = path.resolve(fonts_root, `${fontname}.svg`);
   const icon_ttf_font = path.resolve(fonts_root, `${fontname}.ttf`);
   const icon_woff_font = path.resolve(fonts_root, `${fontname}.woff`);

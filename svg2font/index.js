@@ -23,7 +23,7 @@ function createOtherFont(fonts_root, fontname) {
 /**
  * 生成SVG字体
  */
-function svgFont(fonts_root, fontname, icon_dir, cssIconHtml, unicode_html, cssString) {
+function svgFont(fonts_root, fontname, icon_dir, cssIconHtml, unicode_html, cssString, callback) {
   const icon_svg_font = path.resolve(fonts_root, `${fontname}.svg`)
   if(!fs.existsSync(path.dirname(icon_svg_font))){
     fs.mkdirSync(path.dirname(icon_svg_font));
@@ -36,6 +36,7 @@ function svgFont(fonts_root, fontname, icon_dir, cssIconHtml, unicode_html, cssS
   fontStream.pipe(fs.createWriteStream(icon_svg_font))
     .on('finish', function () {
       createOtherFont(fonts_root, fontname)
+      callback()
     })
     .on('error', function (err) {
       console.log(err);

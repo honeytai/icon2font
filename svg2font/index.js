@@ -10,12 +10,12 @@ const { ttfEot, ttfWoff, svgTtf } = require('./ttf2eot');
 const { readSrcPathSync, string2unicodes } = require('../utils');
 
 // 根据svg生成其他字体
-function createOtherFont(fonts_root, fontname) {
+function createOtherFont(fonts_root, fontname, createTime) {
   const icon_svg_font = path.resolve(fonts_root, `${fontname}.svg`);
   const icon_ttf_font = path.resolve(fonts_root, `${fontname}.ttf`);
   const icon_woff_font = path.resolve(fonts_root, `${fontname}.woff`);
   const icon_eot_font = path.resolve(fonts_root, `${fontname}.eot`);
-  svgTtf(icon_svg_font, icon_ttf_font);
+  svgTtf(icon_svg_font, icon_ttf_font, createTime);
   ttfWoff(icon_ttf_font, icon_woff_font);
   ttfEot(icon_ttf_font, icon_eot_font);
 }
@@ -23,7 +23,7 @@ function createOtherFont(fonts_root, fontname) {
 /**
  * 生成SVG字体
  */
-function svgFont(fonts_root, fontname, icon_dir, cssIconHtml, unicode_html, cssString, callback) {
+function svgFont(fonts_root, fontname, icon_dir, cssIconHtml, unicode_html, cssString, createTime, callback) {
   const icon_svg_font = path.resolve(fonts_root, `${fontname}.svg`)
   if(!fs.existsSync(path.dirname(icon_svg_font))){
     fs.mkdirSync(path.dirname(icon_svg_font));
@@ -35,7 +35,7 @@ function svgFont(fonts_root, fontname, icon_dir, cssIconHtml, unicode_html, cssS
   });
   fontStream.pipe(fs.createWriteStream(icon_svg_font))
     .on('finish', function () {
-      createOtherFont(fonts_root, fontname)
+      createOtherFont(fonts_root, fontname, createTime)
       callback()
     })
     .on('error', function (err) {

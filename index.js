@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const _ = require('lodash');
 
 const { svgFont, cleanFont } = require('./svg2font/index.js');
-const func = function(inputdir, outputdir, fontname, callback) {
+const func = function(inputdir, outputdir, fontname, createTime, callback) {
     const project_root = process.cwd();
     const fonts_root = path.resolve(project_root, outputdir);
     const icon_dir = path.resolve(project_root, inputdir);
@@ -24,6 +24,7 @@ const func = function(inputdir, outputdir, fontname, callback) {
         cssIconHtml,
         unicode_html,
         cssString,
+        createTime,
         function() {
             copy(
                 font_temp,

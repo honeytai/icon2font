@@ -1,8 +1,9 @@
 @font-face {font-family: "{{fontname}}";
-  src: url('{{fontname}}.eot?t={{timestamp}}'); /* IE9*/
-  src: url('{{fontname}}.eot?t={{timestamp}}#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('{{fontname}}.ttf?t={{timestamp}}') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('{{fontname}}.svg?t={{timestamp}}#{{fontname}}') format('svg'); /* iOS 4.1- */
+  src: url('{{fontname}}.eot'); /* IE9*/
+  src: url('{{fontname}}.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('{{fontname}}.woff') format('woff'),
+  url('{{fontname}}.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('{{fontname}}.svg#{{fontname}}') format('svg'); /* iOS 4.1- */
 }
 
 [class^="{{fontname}}-"], [class*=" {{fontname}}-"] {

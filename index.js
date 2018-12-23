@@ -48,7 +48,7 @@ const func = function(inputdir, outputdir, fontname, createTime, callback) {
                             'copy svg icon done!' + '\n' + 'thank you for use~'
                         )
                     );
-                    callback(createdFiles);
+                    callback && callback(createdFiles);
                 }
             );
         }
